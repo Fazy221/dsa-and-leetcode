@@ -1,11 +1,10 @@
 "use strict";
 
-function log(a,b) {
-  for (let i = 0; i < a; i++) {
-    for (let j = 0; j < b; j++) {
-      console.log(i, j);
-    }
-  }
-}
-
-log(5,10);
+let obj1 = {
+  name: "Faizan",
+};
+let obj2 = obj1;
+obj1 = {
+  name: "Hassan",
+};
+console.log(obj2);
