@@ -73,14 +73,13 @@ class LinkedList {
     return temp;
   }
   set(index, value) {
-    let temp = this.get(index); // Instead of rewriting get method, will just use it there to get value at asked index
+    let temp = this.get(index);
     if (temp) {
-      temp.value = value; // If value is found on given index then temp.value is changed with asked value and return true otherwise false
+      temp.value = value;
       return true;
     }
     return false;
   }
-  // Reason why we do undefined/return list in get method and true/false in set method bcuz in get method,
   // My Method
   // insert(index, value) {
   //   if (index === 0) return this.unshift(value);
@@ -109,10 +108,10 @@ class LinkedList {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) return this.shift();
     if (index === this.length - 1) return this.pop();
-    let before = this.get(index-1);
+    let before = this.get(index - 1);
     let temp = before.next;
     before.next = temp.next;
-    temp.next = null; 
+    temp.next = null;
     this.length--;
   }
 }
@@ -128,3 +127,6 @@ myLinkedList.unshift(4);
 myLinkedList.insert(1, 92);
 console.log(myLinkedList);
 // console.log(myLinkedList.get(0).value);
+
+// 1. Solde code example of insert and remove
+// 2. Add instruction comments to both and make individual files of each
