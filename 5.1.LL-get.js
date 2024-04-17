@@ -67,7 +67,7 @@ class LinkedList {
     if (index < 0 || index >= this.length) return undefined; // If we're asking for index which don't exist then return err. Reason why we're doing >= length because length starts counting from 1 same as arr
     let temp = this.head; // Will set temp same as this.head
     for (let i = 0; i < index; i++) {
-      temp = temp.next; // if we put index 2, it'll move temp 2 times from this.head to the right 
+      temp = temp.next; // if we put index 2, it'll move temp 2 times from this.head to the right
     }
     return temp; // This will return the temp which is the value temp is pointing to after for loop has ended it's run
   }
@@ -81,3 +81,12 @@ console.log(myLinkedList.get(1).value);
 console.log(myLinkedList.get(0).value);
 console.log(myLinkedList.get(3));
 
+/* Reason why we do index >= this.length and not index > length:
+In the get method you've provided for a LinkedList in JavaScript, the condition index >= this.length is used to handle cases where the index is out of bounds of the LinkedList. If the index is less than 0 or greater than or equal to the length of the LinkedList, it means the index is invalid, and the method returns undefined.
+
+For example, if the length of the LinkedList is 5 and you try to access the element at index 5 (which is the last index in a zero-based index), you should get the element at the last index, which is valid. In this case, index >= this.length ensures that index 5 is considered valid because it is equal to the length of the LinkedList.
+
+If you were to use index > this.length instead, accessing the element at the last index would actually be considered invalid because index would be greater than this.length. This would result in undefined being returned for a valid access to the last element.
+
+In summary, using index >= this.length allows the get method to correctly handle cases where the index is within the bounds of the LinkedList, including accessing the element at the last index.
+*/
