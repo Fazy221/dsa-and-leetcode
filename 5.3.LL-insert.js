@@ -73,10 +73,12 @@ class LinkedList {
     return temp;
   }
   set(index, value) {
-    if (index < 0 || index > this.length) return false;
     let temp = this.get(index);
-    temp.value = value;
-    return true;
+    while (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
   }
   insert(index, value) {
     if (index < 0 || index > this.length) return undefined;
@@ -84,7 +86,7 @@ class LinkedList {
     if (index === this.length) return this.push(value); // Same as unshift, if value has to be inserted at end of LL then use push method
 
     const newNode = new Node(value); // Will pass in value so new node is created witholding it
-    let temp = this.get(index); // Will get index through get method shortcut
+    let temp = this.get(index - 1); // Will get behind asked index through get method shortcut so we can insert value at the asked index 
     newNode.next = temp.next; // Now for new value, will first make it's next same as temp's so they're pointing to same next
     temp.next = newNode; // Now will change temp's next to newNode. Now temp is pointing to new value and that new value is pointing to it's next value which was formally pointed by temp so it's easily squeezed b/w 2
     this.length++; // Increase length of LL

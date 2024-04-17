@@ -73,10 +73,12 @@ class LinkedList {
     return temp;
   }
   set(index, value) {
-    if (index < 0 || index > this.length) return false;
     let temp = this.get(index);
-    temp.value = value;
-    return true;
+    while (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
   }
   insert(index, value) {
     if (index < 0 || index > this.length) return undefined;
@@ -84,7 +86,7 @@ class LinkedList {
     if (index === this.length) return this.push(value);
 
     const newNode = new Node(value);
-    let temp = this.get(index);
+    let temp = this.get(index - 1);
     newNode.next = temp.next;
     temp.next = newNode;
     this.length++;
