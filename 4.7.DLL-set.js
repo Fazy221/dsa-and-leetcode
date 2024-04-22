@@ -82,20 +82,21 @@ class LinkedList {
     }
     return temp;
   }
-  set(index, value){
+  set(index, value) {
     let temp = this.get(index);
-    if(temp) {
-        temp.value = value;
-        return true;
+    if (temp) {
+      temp.value = value;
+      return true;
     }
     return false;
   }
-  insert(value, index) {
-    if(index < 0 || index >= this.length) return undefined;
-    if(index === 0 ) return this.unshift(value);
-    if(index === this.length) return this.push(value);
+  insert(index, value) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === 0) return this.unshift(value);
+    if (index === this.length) return this.push(value);
     const newNode = new Node(value);
     let before = this.get(index - 1);
+    //   As prev is involved in DLL this time so will have to adjust after as well rest is pretty much same
     let after = before.next;
     before.next = newNode;
     newNode.next = after;
