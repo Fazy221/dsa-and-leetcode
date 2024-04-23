@@ -103,6 +103,7 @@ class DoubleLinkedList {
     this.length++;
     return this;
   }
+  // Here is my method which is more readable and easy to deconstruct 
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) return this.shift();
@@ -117,25 +118,19 @@ class DoubleLinkedList {
     this.length--;
     return temp;
   }
-  swapFirstAndLast() {
-    if(!this.head) return undefined;
-    let head = this.head.value;
-    this.head.value = this.tail.value;
-    this.tail.value = head;
-    return this;
+  // here is instructor's method. He directly implemented changes instead of storing in variable to have it solved quickly but that makes it less readable though
+  /*
+remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    let temp = this.get(index);
+    temp.prev.next = temp.next;
+    temp.next.prev = temp.prev;
+    temp.next = null;
+    temp.prev = null;
+    this.length--;
+    return temp;
   }
-  reverse() {
-    let temp = null;
-    let curr = this.head;
-    while(curr !== null) {
-      temp = curr.prev;
-      curr.prev = curr.next;
-      curr.next = temp;
-      curr = curr.next;
-    }
-    temp = this.head;
-    this.head = this.tail;
-    this.tail = temp;
-  }
-  
+  */
 }
