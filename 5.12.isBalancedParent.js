@@ -46,15 +46,29 @@ class Stack {
 //                                               //
 ///////////////////////////////////////////////////
 
-function isBalancedParentheses(parantheses) {
+function isBalancedParentheses(parentheses) {
+  // Create a new stack instance
   const stack = new Stack();
-  for (const p of parantheses) {
+
+  // Iterate through each character in the input string
+  for (const p of parentheses) {
+    // If the character is an opening parenthesis
     if (p === "(") {
+      // Push it onto the stack
       stack.push(p);
-    } else if (p === ")") {
-      if (stack.isEmpty() || stack.pop() !== ")") return false;
+    }
+    // If the character is a closing parenthesis
+    else if (p === ")") {
+      // Check if the stack is empty or the popped
+      // value is not an opening parenthesis
+      if (stack.isEmpty() || stack.pop() !== "(") {
+        // Return false, as the parentheses are not balanced
+        return false;
+      }
     }
   }
+
+  // Return true if the stack is empty, indicating balanced parentheses
   return stack.isEmpty();
 }
 
