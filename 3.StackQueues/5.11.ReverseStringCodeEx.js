@@ -91,3 +91,56 @@ console.log(`Input: "${input4}" | Expected: "${expected4}" | Result: "${result4}
     Input: "" | Expected: "" | Result: ""
 
 */
+
+
+/*
+
+GPT4-Turbo explanation
+Understanding the reverseString Function Using a Stack
+
+To understand how the reverseString function works, let's break down the process step-by-step, using the provided Stack class and the reverseString function itself.
+
+Step 1: Initializing the Stack
+
+    A new instance of the Stack class is created. This stack will be used to temporarily hold the characters of the input string.
+
+    const stack = new Stack();
+
+
+Step 2: Pushing Characters to the Stack
+
+    The function iterates over each character of the input string and pushes each character onto the stack. This is done using the push method of the Stack class.
+
+    for(const s of string){
+        stack.push(s);
+    }
+
+
+Step 3: Popping Characters from the Stack
+
+    An empty string reversedString is initialized to collect the characters in reverse order.
+    The function then enters a loop that continues until the stack is empty (stack.isEmpty() returns false).
+    Inside the loop, characters are popped from the stack (using the pop method) and concatenated to reversedString. Since the stack is a Last In First Out (LIFO) data structure, characters are popped in the reverse order of how they were pushed.
+
+    while(!stack.isEmpty()){
+        reversedString += stack.pop();
+    }
+
+
+Step 4: Returning the Reversed String
+
+    After the loop completes (when the stack is empty), the reversedString now contains the characters of the original string in reverse order. This reversed string is then returned as the output of the function.
+
+    return reversedString;
+
+
+Example Execution
+
+    For an input string "Hello, World!", the characters are pushed onto the stack in the order H, e, l, l, o, ,, , W, o, r, l, d, !.
+    They are then popped from the stack in the reverse order: !, d, l, r, o, W, , ,, o, l, l, e, H.
+    The reversedString thus becomes "!dlroW ,olleH", which is returned by the function.
+
+
+This method effectively uses the stack's LIFO behavior to reverse the sequence of characters in the string, demonstrating a practical application of stack data structures in solving common programming problems like string reversal.
+
+*/
