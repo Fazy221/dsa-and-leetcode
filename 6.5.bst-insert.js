@@ -17,6 +17,7 @@ class BST {
     }
     let temp = this.root;
     while (true) {
+      if (newNode.value === temp.value) return undefined;
       if (newNode.value < temp.value) {
         if (temp.left === null) {
           temp.left = newNode;
