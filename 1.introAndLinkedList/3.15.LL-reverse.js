@@ -112,9 +112,9 @@ class LinkedList {
     let prev = null; // Will make prev variable which is null as default
     for (let i = 0; i < this.length; i++) {
       // Will now run for loop on LL
-      next = temp.next; // Will make next as temp.next which is already it by default but useful when loop re-runs
-      temp.next = prev; // Now change temp's next (pointer) to previous which is currently null but when loop re-runs, it'll be holding some value
-      prev = temp; // Then put prev on same position as temp so we can move temp further in next step
+      next = temp.next; // Will make next as temp.next which is already it in first iteration but will move to next when loop re-runs
+      temp.next = prev; // Now change temp's pointer (temp.next) to previous which is currently null in 1st iteration but when loop re-runs, it'll be holding temp's formal position as temp moved to next in 4th line
+      prev = temp; // Then put prev on same position as temp so we can move temp further in next step. 
       temp = next; // Now move temp to next's position. Now this'll keep running until next = temp.next which would be null so last value's pointer is reversed with second & third step and temp = next is null thus it stops
     }
   }
