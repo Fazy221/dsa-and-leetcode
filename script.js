@@ -27,13 +27,13 @@ class LinkedList {
   pop() {
     if(!this.head) return undefined;
     let temp = this.head;
-    let pre = this.head;
+    let pre;
     while(temp.next) {
       pre = temp;
       temp = temp.next;
     }
     this.tail = pre;
-    this.tail.next = null;
+    this.tail.next = null;  
     this.length--;
     if(this.length === 0) {
       this.head = null;
@@ -52,7 +52,7 @@ class LinkedList {
     }
     this.length++;
     return this;
-  }
+  } 
   shift() {
     if(!this.head) return undefined;
     let temp = this.head;
@@ -66,29 +66,29 @@ class LinkedList {
     return temp;
   }
   get(index) {
-    if(index < 0 || index >= this.length) return false;
+    if(index < 0 || index >= this.length) return undefined;
     let temp = this.head;
-    for(let i = 0; i < index; i++) { 
+    for(let i = 0; i < index; i++) {
       temp = temp.next;
     }
-    return temp.value;
+    return temp;
   }
-  set(index, val)  {
+  set(index, value) {
     if(index < 0 || index >= this.length) return false;
     let temp = this.head;
     for(let i = 0; i < index; i++) {
       temp = temp.next;
     }
-    temp.value = val;
-    return this;
+    temp.value = value;
+    return true;
   }
-  insert(index, val) {
+  insert(index, value) {
     if(index < 0 || index > this.length) return undefined;
-    if(index === 0) return this.unshift(val);
-    if(index === this.length) return this.push(val);
-    const newNode = new Node(val);
+    if(index === 0) return this.unshift(value);
+    if(index === this.length) return this.push(value);
+    const newNode = new Node(value);
     let temp = this.head;
-    let pre = this.head;
+    let pre;
     for(let i = 0; i < index; i++) {
       pre = temp;
       temp = temp.next;
@@ -101,36 +101,28 @@ class LinkedList {
   remove(index) {
     if(index < 0 || index >= this.length) return undefined;
     if(index === 0) return this.shift();
-    if(index === this.length-1) return this.pop();
+    if(index === this.length - 1) return this.pop();
     let temp = this.head;
-    let pre = this.head;
-    let del = this.head;
+    let pre;
     for(let i = 0; i < index; i++) {
       pre = temp;
       temp = temp.next;
     }
-    del = temp;
     temp = temp.next;
     pre.next = temp;
-    del.next = null;
     this.length--;
-    if(this.length === 0) {
-      this.head = null;
-      this.tail = null;
-    }
-    return this;
   }
-  reverse() {
+  reverse(){
     let temp = this.head;
     this.head = this.tail;
     this.tail = temp;
     let next = temp.next;
     let prev = null;
-    for(let i = 0; i < this.length; i++) {
+    while(temp){
       next = temp.next;
       temp.next = prev;
       prev = temp;
-      temp = next;
+      temp = next;  
     }
     return this;
   }
@@ -149,20 +141,19 @@ class LinkedList {
     while(fast !== null && fast.next !== null) {
       fast = fast.next.next;
       slow = slow.next;
-      if(slow === fast) return true;
+      if(fast === slow) return true;
     }
     return false;
   }
 }
-const myLinkedList = new LinkedList(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(69);
-myLinkedList.push(80);
+
+let myLinkedList = new LinkedList(12);
 myLinkedList.push(24);
-myLinkedList.insert(2,99);
-myLinkedList.pop();
-// myLinkedList.pop();
-// myLinkedList.unshift(20);
-// myLinkedList.shift(20);
+myLinkedList.push(36);
+// myLinkedList.unshift(35);
+// console.log(myLinkedList);
+// console.log(myLinkedList.get(1));
+// myLinkedList.set(1, 36);
+// myLinkedList.insert(1, 15);
+// myLinkedList.remove(1);
 console.log(myLinkedList.hasLoop());
