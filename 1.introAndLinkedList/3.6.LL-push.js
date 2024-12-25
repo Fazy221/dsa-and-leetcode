@@ -15,7 +15,7 @@
     push(value) {
         const newNode = new Node(value);
         if (!this.head) {
-        // As this.head means head is pointing to sth, !this.head mean it point to falsy value like null then make both head and tail point to new node. Reason why we don't set this.tail to this.head like in construct because we're not initializing linked list but instead, adding new node. 
+        // As this.head means head is pointing to sth, !this.head mean it point to falsy value like null then make both head and tail point to new node. Reason why we don't set this.tail to this.head like in construct because we're not initializing linked list but instead, adding new node. In shift or pop method's edge case when we decrease length to 0, we'll make both this.head and this.tail point to null so it makes sense for both to point at newNode there. 
         this.head = newNode;
         this.tail = newNode;
         } else {
