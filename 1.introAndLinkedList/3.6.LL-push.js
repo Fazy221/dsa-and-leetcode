@@ -19,7 +19,7 @@
         this.head = newNode;
         this.tail = newNode;
         } else {
-        this.tail.next = newNode; // As tail is pointing to last item {value:7, next:null}; we'll set next to new Node so it'll be like {value:7, next:{value:4, next:null}};
+        this.tail.next = newNode; // As tail is pointing to last item which is null by default {value:7, next:null}; we'll set next to new Node so it'll be like {value:7, next:{value:4, next:null}};
         this.tail = newNode; // Then we can set tail to the new node
         }
         this.length++; // Increase length of LL
