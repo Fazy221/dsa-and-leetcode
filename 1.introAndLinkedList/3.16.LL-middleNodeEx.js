@@ -179,8 +179,8 @@ class Node {
   
       Initialize two pointers, slow and fast, both pointing to the head of the linked list.
   
-      Traverse the linked list using a while loop. The loop continues as long as fast is not null (i.e., it has not reached the end of the list), and fast.next is also not null (i.e., there is at least one more node after the current fast node).
-  
+      Traverse the linked list using a while loop. The loop continues as long as fast is not null (i.e., it has not reached the end of the list), and fast.next is also not null (i.e., there is at least one more node faster's pointer (faster.next) is pointing to after the current fast's node).
+  0
       Inside the loop, move the slow pointer one step forward (i.e., slow = slow.next) and the fast pointer two steps forward (i.e., fast = fast.next.next).
   
       Since the fast pointer moves twice as fast as the slow pointer, by the time the fast pointer reaches the end of the list or goes beyond it, the slow pointer will be at the middle node.

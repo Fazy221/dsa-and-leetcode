@@ -134,12 +134,35 @@ class LinkedList {
     }
     return this;
   }
+  findMiddleNode() {
+    let fast = this.head;
+    let slow = this.head;
+    while(fast !== null && fast.next !== null) {
+      fast = fast.next.next;
+      slow = slow.next;
+    }
+    return slow.value;
+  }
+  hasLoop() {
+    let fast = this.head;
+    let slow = this.head;
+    while(fast !== null && fast.next !== null) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if(slow === fast) return true;
+    }
+    return false;
+  }
 }
-const myLinkedList = new LinkedList(32);
-myLinkedList.push(45);
-myLinkedList.push(50);
+const myLinkedList = new LinkedList(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(69);
+myLinkedList.push(80);
+myLinkedList.push(24);
+myLinkedList.insert(2,99);
+myLinkedList.pop();
 // myLinkedList.pop();
 // myLinkedList.unshift(20);
 // myLinkedList.shift(20);
-
-console.log(myLinkedList.reverse());
+console.log(myLinkedList.hasLoop());
