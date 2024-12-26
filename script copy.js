@@ -1,3 +1,4 @@
+/*
 class Node {
   constructor(value) {
     this.value = value;
@@ -195,3 +196,12 @@ myLinkedList.push(96);
 // console.log(myLinkedList.findMiddleNode(2));
 console.log(myLinkedList.findKthNode(2));
 // console.log(myLinkedList.removeDuplicates());
+
+*/
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
