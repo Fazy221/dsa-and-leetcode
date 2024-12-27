@@ -69,20 +69,19 @@ class DoublyLinkedList {
     //                               //
     ///////////////////////////////////
     reverse() {
-       let temp = null;
-       let curr = this.head;
-       while(curr !== null) {
+        let curr = this.head;
+        let temp = null;
+        while(curr !== null) {
         temp = curr.prev;
         curr.prev = curr.next;
         curr.next = temp;
-        curr = curr.next;
-       }
-       temp = this.head;
-       this.head = this.tail;
-       this.tail = this.head;
+        curr = curr.prev; // can also say curr = temp as same thing
+        }
+        temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
     }
 }
-
 let myDoublyLinkedList = new DoublyLinkedList(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
